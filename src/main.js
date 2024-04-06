@@ -7,8 +7,8 @@ Time Spent: Infinity
 // The base size from the Zelmore screenshot is 153 by 93, so the pixelart is made according to that
 let config = {
     type: Phaser.AUTO,
-    width: 125 * 7,
-    height: 100 * 7,
+    width: 240 * 4,
+    height: 160 * 4,
     physics: {
         default: 'arcade',
         arcade: {
