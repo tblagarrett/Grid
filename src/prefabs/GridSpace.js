@@ -5,6 +5,7 @@ class GridSpace extends Phaser.GameObjects.Sprite {
         // NOTE: Coordinates start at 0
         this.xCoord = xCoord
         this.yCoord = yCoord
+        this.bit = undefined
 
         // Spawn the Space
         this.sprite = scene.add.existing(this)

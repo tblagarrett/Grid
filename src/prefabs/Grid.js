@@ -17,8 +17,10 @@ class Grid extends Phaser.GameObjects.Group {
             squareImage: 'gridSpace',
         }
         this.config = {...defaults, ...config}
-        this.x = config.x
-        this.y = config.y
+        this.x = this.config.x
+        this.y = this.config.y
+        this.xCount = this.config.xCount
+        this.yCount = this.config.yCount
 
         // This matrix will hold all of the children, for reference
         this.matrix = []
