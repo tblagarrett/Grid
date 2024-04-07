@@ -26,8 +26,10 @@ let config = {
 let game = new Phaser.Game(config)
 // Put any config that the other scenes may need
 settings = {
-    gridSizeX: 10,
-    gridSizeY: 10
+    gridSizeX: 14,
+    gridSizeY: 9,
+    squareXSize: 17 * 4,
+    squareYSize: 17 * 4
 }
 
 // define globals

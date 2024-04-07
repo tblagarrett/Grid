@@ -4,8 +4,15 @@ class Play extends Phaser.Scene {
     }
 
     create() {
-        this.square = new GridSpace(this, w/2, h/2, 'gridSpace', 0)
-        this.square.setOrigin(0.5, 0.5)
+        this.grid = new Grid(this, undefined, {
+            x: 6,
+            y: h - settings.squareYSize / 4,
+            xCount: settings.gridSizeX,
+            yCount: settings.gridSizeY,
+            squareXSize: settings.squareXSize,
+            squareYSize: settings.squareYSize,
+            squareImage: 'gridSpace',
+        })
     }
 
     update(time, delta) {
