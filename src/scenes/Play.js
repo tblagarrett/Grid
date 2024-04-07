@@ -5,8 +5,8 @@ class Play extends Phaser.Scene {
 
     create() {
         this.grid = new Grid(this, undefined, {
-            x: 6,
-            y: h - settings.squareYSize / 4,
+            x: settings.squareXSize / 2 + settings.squareXSize / 16,
+            y: h - settings.squareYSize / 2 - settings.squareYSize / 6,
             xCount: settings.gridSizeX,
             yCount: settings.gridSizeY,
             squareXSize: settings.squareXSize,

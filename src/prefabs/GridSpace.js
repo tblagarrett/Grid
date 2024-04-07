@@ -9,7 +9,7 @@ class GridSpace extends Phaser.GameObjects.Sprite {
         // Spawn the Space
         this.sprite = scene.add.existing(this)
         // this.physics = scene.physics.add.existing(this)
-        this.setOrigin(0, 1)
+        this.setOrigin(0.5, 0.5)
     }
 
     update() {
