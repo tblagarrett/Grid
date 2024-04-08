@@ -29,6 +29,8 @@ class Play extends Phaser.Scene {
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
+        Path.findPath(this.grid.matrix[0][0], this.grid.matrix[3][3]).print()
+
     }
 
     update(time, delta) {
@@ -37,6 +39,8 @@ class Play extends Phaser.Scene {
     }
 
     handleMovement(bit) {
+        if (bit.moving) {return}    
+
         if (Phaser.Input.Keyboard.JustDown(this.cursors.up) || Phaser.Input.Keyboard.JustDown(this.keyW)) {
             bit.move([0, 1])
         } else if (Phaser.Input.Keyboard.JustDown(this.cursors.down) || Phaser.Input.Keyboard.JustDown(this.keyS)) {

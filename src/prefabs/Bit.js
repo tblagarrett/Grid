@@ -21,6 +21,7 @@ class Bit extends Phaser.GameObjects.Sprite {
         // place the Bit in the square
         this.x = this.square.x
         this.y = this.square.y
+        this.moving = false
 
         // Spawn the Space
         this.sprite = scene.add.existing(this)
@@ -37,7 +38,7 @@ class Bit extends Phaser.GameObjects.Sprite {
     // down: [0, -1]
     // left: [-1, 0]
     // right: [1, 0]
-    move(direction, moveTween = undefined) {
+    move(direction) {
         if (!this.config.moveable) {
             console.log(`${this.config.name} move(): Object is not moveable`)
             return
@@ -68,13 +69,23 @@ class Bit extends Phaser.GameObjects.Sprite {
         this.square = targetSquare
 
         // Make the movement
-        if (moveTween) {
-            moveTween.play()
-        } else {
-            this.x = this.square.x
-            this.y = this.square.y
-            this.xCoord = this.square.xCoord
-            this.yCoord = this.square.yCoord
-        }
+        let moveTween = this.scene.tweens.add({
+            targets: this,
+            duration: settings.moveDelay,
+            paused: false,
+            x: this.square.x,
+            y: this.square.y,
+            onStart: () => {
+                this.moving = true
+            },
+            onStartScope: this,
+            onComplete: () => {
+                this.moving = false
+            },
+            onCompleteScope: this,
+        })
+
+        this.xCoord = this.square.xCoord
+        this.yCoord = this.square.yCoord
     }
 }

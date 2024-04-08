@@ -35,7 +35,8 @@ class Grid extends Phaser.GameObjects.Group {
                     config.squareImage,
                     0,
                     j,  // x - coord
-                    i   // y - coord
+                    i,  // y - coord
+                    this 
                 )
 
                 row.push(square)        // add square to the row
@@ -43,8 +44,6 @@ class Grid extends Phaser.GameObjects.Group {
             }
             this.matrix.push(row)   // add row to the matrix
         }
-
-        console.log(this.matrix)
     }
 
     update() {
