@@ -29,7 +29,12 @@ class Play extends Phaser.Scene {
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
-        Path.findPath(this.grid.matrix[0][0], this.grid.matrix[3][3]).print()
+        let path = Path.findPath(this.grid.matrix[0][0], this.grid.matrix[2][7])
+        path.print()
+        
+        for (let i = 0; i < path.length; i++) {
+            path.path[i].setTint(0xFACADE)
+        }
 
     }
 

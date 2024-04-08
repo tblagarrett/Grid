@@ -11,6 +11,14 @@ class Path {
         this.length = this.path.length
     }
 
+    *[Symbol.iterator]() {
+        yield* this.path;
+    }
+
+    set(index, value) {
+        this.path
+    }
+
     // returns a Path from one Space to Another, or undefined if there is an issue
     static findPath(from, to) {
         if (from.grid !== to.grid) {
@@ -22,7 +30,7 @@ class Path {
         let path = new Path(from.grid.matrix)
         path.origin = from
         path.destination = to
-        path.push(origin)
+        path.push(from)
 
         // set up variables to be used later
         let matrix = from.grid.matrix
