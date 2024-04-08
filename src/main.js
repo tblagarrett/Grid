@@ -29,7 +29,8 @@ settings = {
     gridSizeX: 14,
     gridSizeY: 9,
     squareXSize: 17 * 4,
-    squareYSize: 17 * 4
+    squareYSize: 17 * 4,
+    moveDelay: .2 * 1000, // in milliseconds
 }
 
 // define globals

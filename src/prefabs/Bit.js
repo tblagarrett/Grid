@@ -53,8 +53,6 @@ class Bit extends Phaser.GameObjects.Sprite {
             return
         }
 
-        console.log("YCount: " + this.grid.yCount + " XCount: " + this.grid.xCount)
-        console.log("Y: " + targetY + " X: " + targetX)
         let targetSquare = this.grid.matrix[targetY][targetX]
 
         // if the spot is already taken, dont allow it
