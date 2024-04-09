@@ -7,6 +7,8 @@ class GridSpace extends Phaser.GameObjects.Sprite {
         this.yCoord = yCoord
         this.bit = undefined
         this.grid = grid
+        this.owner = undefined
+        this.setInteractive()
 
         // Spawn the Space
         this.sprite = scene.add.existing(this)

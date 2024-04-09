@@ -26,11 +26,12 @@ let config = {
 let game = new Phaser.Game(config)
 // Put any config that the other scenes may need
 settings = {
-    gridSizeX: 14,
+    gridSizeX: 20,
     gridSizeY: 9,
-    squareXSize: 17 * 4,
-    squareYSize: 17 * 4,
+    squareXSize: 16 * 3,
+    squareYSize: 16 * 3,
     moveDelay: .2 * 1000, // in milliseconds
+    moveDistance: 6       // how many spaces the player can move in a turn
 }
 
 // define globals

@@ -34,22 +34,13 @@ class Path {
 
         // set up variables to be used later
         let matrix = from.grid.matrix
-        let fromCoords = [from.yCoord, from.xCoord]
         let toCoords = [to.yCoord, to.xCoord]
-        let xDistance = Math.abs(fromCoords[0] - toCoords[0])
-        let yDistance = Math.abs(fromCoords[1] - toCoords[1])
         let current = from
         let currentCoords = [current.yCoord, current.xCoord]
 
         // Determine which direction to go first for the path
-        let first = 0                   // y coordinate
-        let second = 1
-        if (xDistance >= yDistance) {
-            first = 1                   // x coordinate
-            second = 0
-        }
-
-        console.log("FIRST IS " + first)
+        let first = 1
+        let second = 0
 
         // Find all the squares necessary to get aligned on the first axis
         while (currentCoords[first] != toCoords[first]) {
@@ -84,14 +75,40 @@ class Path {
     }
 
     push(square) {
+        if (this.length == 0) {
+            this.origin = square
+        }
+
         this.path.push(square)
+        this.destination = square
         this.length = this.path.length
     }
 
     pop() {
         let square = this.path.pop()
         this.length = this.path.length
+        
+        if (this.length == 0) {
+            this.destination = undefined
+        } else {
+            this.destination = this.path[this.length-1]
+        }
+        
+
         return square
+    }
+
+    append(otherPath) {
+        for (let i = 0; i < otherPath.length; i++) {
+            this.push(otherPath.path[i])
+        }
+    }
+
+    clear() {
+        this.path = []
+        this.origin = undefined
+        this.destination = undefined
+        this.length = this.path.length
     }
 
     print() {
