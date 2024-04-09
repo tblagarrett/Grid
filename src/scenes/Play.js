@@ -23,6 +23,9 @@ class Play extends Phaser.Scene {
             moveable: true
         })
 
+        this.clearButton = this.add.image(10, 10, 'clearButton').setOrigin(0,0).setInteractive()
+        this.clearButton.on('pointerdown', this.clearSelection, this)
+
         // set up cursor keys
         this.cursors = this.input.keyboard.createCursorKeys();
         // Create key objects for WASD keys
@@ -127,7 +130,14 @@ class Play extends Phaser.Scene {
     }
 
     clearSelection() {
+        // clear tint for selected pieces
+        for (let i = 0; i < this.selectedPath.length; i++) {
+            this.selectedPath.path[i].clearTint()
+        }
+
         this.selectedPath.clear()
         this.selectedPath.push(this.player.square)
+        this.highlightOrigin = this.player.square
+        this.distanceLeft = settings.moveDistance
     }
 }
